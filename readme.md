@@ -6,6 +6,8 @@
 
 This project introduces Analyze-Select-Match (ASM), a novel approach to local email categorization using small language models. The goal is to empower users to organize emails on their local machines by categorizing them into user-defined labels with flexibility in both quantity and quality.
 
+![ASM](graph.png)
+
 ## Author Information
 
 - **Author:** inż. Jakub Matłacz
