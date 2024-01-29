@@ -126,14 +126,14 @@ rects1 = ax1.bar(
     correctness_means,
     bar_width,
     label="Average Correctness",
-    color="g",
+    color="green",
     alpha=0.7,
 )
-ax1.set_ylabel("Average Correctness", color="g")
-ax1.tick_params(axis="y", labelcolor="g")
+ax1.set_ylabel("Average Correctness", color="green")
+ax1.tick_params(axis="y", labelcolor="green")
 
 # Add average line for correctness
-ax1.axhline(y=correctness_means.mean(), color="g", linestyle="--", linewidth=0.5)
+ax1.axhline(y=correctness_means.mean(), color="green", linestyle="--", linewidth=0.5)
 
 # Create second y-axis for elapsed time
 ax2 = ax1.twinx()
@@ -142,14 +142,14 @@ rects2 = ax2.bar(
     elapsed_time_means,
     bar_width,
     label="Average Elapsed Time",
-    color="r",
+    color="orange",
     alpha=0.7,
 )
-ax2.set_ylabel("Average Elapsed Time", color="r")
-ax2.tick_params(axis="y", labelcolor="r")
+ax2.set_ylabel("Average Elapsed Time", color="orange")
+ax2.tick_params(axis="y", labelcolor="orange")
 
 # Add average line for elapsed time
-ax2.axhline(y=elapsed_time_means.mean(), color="r", linestyle="--", linewidth=0.5)
+ax2.axhline(y=elapsed_time_means.mean(), color="orange", linestyle="--", linewidth=0.5)
 
 # Create third y-axis for efficiency
 ax3 = ax1.twinx()
@@ -158,14 +158,14 @@ rects3 = ax3.bar(
     efficiency_means,
     bar_width,
     label="Average Efficiency",
-    color="b",
+    color="blue",
     alpha=0.7,
 )
-ax3.set_ylabel("Average Efficiency", color="b")
-ax3.tick_params(axis="y", labelcolor="b")
+ax3.set_ylabel("Average Efficiency", color="blue")
+ax3.tick_params(axis="y", labelcolor="blue")
 
 # Add average line for efficiency
-ax3.axhline(y=efficiency_means.mean(), color="b", linestyle="--", linewidth=0.5)
+ax3.axhline(y=efficiency_means.mean(), color="blue", linestyle="--", linewidth=0.5)
 
 # Move the third y-axis to the left
 ax3.spines["right"].set_position(("outward", 60))
