@@ -60,7 +60,7 @@ efficiency_array = (correctness_array / average_elapsed_time_values_array).round
 # %%
 
 arrays = [correctness_array, average_elapsed_time_values_array, efficiency_array]
-names = ["Accuracy", "Average Processing Time", "Efficiency"]
+names = ["Accuracy", "Processing Time", "Efficiency"]
 color_palettes = ["YlGn", "YlOrRd", "YlGnBu"]
 
 for array, name, palette in zip(arrays, names, color_palettes):
@@ -99,4 +99,99 @@ for array, name, palette in zip(arrays, names, color_palettes):
     plt.savefig(f"{name}.svg", format="svg", bbox_inches="tight", transparent=True)
     plt.show()
 
+# %%
+# Import necessary libraries
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Calculate means
+correctness_means = correctness_array.mean(axis=1)
+elapsed_time_means = average_elapsed_time_values_array.mean(axis=1)
+efficiency_means = efficiency_array.mean(axis=1)
+
+# Define the number of groups and the number of bars per group
+num_groups = len(techniques)
+num_bars = 3
+
+# Define the width of each bar and the positions of the bars
+bar_width = 0.2
+bar_positions = np.arange(num_groups)
+
+# Create a grouped bar chart with a white background
+fig, ax1 = plt.subplots(figsize=(7, 5))
+
+# Add bars for correctness
+rects1 = ax1.bar(
+    bar_positions - bar_width,
+    correctness_means,
+    bar_width,
+    label="Average Correctness",
+    color="g",
+    alpha=0.7,
+)
+ax1.set_ylabel("Average Correctness", color="g")
+ax1.tick_params(axis="y", labelcolor="g")
+
+# Add average line for correctness
+ax1.axhline(y=correctness_means.mean(), color="g", linestyle="--", linewidth=0.5)
+
+# Create second y-axis for elapsed time
+ax2 = ax1.twinx()
+rects2 = ax2.bar(
+    bar_positions,
+    elapsed_time_means,
+    bar_width,
+    label="Average Elapsed Time",
+    color="r",
+    alpha=0.7,
+)
+ax2.set_ylabel("Average Elapsed Time", color="r")
+ax2.tick_params(axis="y", labelcolor="r")
+
+# Add average line for elapsed time
+ax2.axhline(y=elapsed_time_means.mean(), color="r", linestyle="--", linewidth=0.5)
+
+# Create third y-axis for efficiency
+ax3 = ax1.twinx()
+rects3 = ax3.bar(
+    bar_positions + bar_width,
+    efficiency_means,
+    bar_width,
+    label="Average Efficiency",
+    color="b",
+    alpha=0.7,
+)
+ax3.set_ylabel("Average Efficiency", color="b")
+ax3.tick_params(axis="y", labelcolor="b")
+
+# Add average line for efficiency
+ax3.axhline(y=efficiency_means.mean(), color="b", linestyle="--", linewidth=0.5)
+
+# Move the third y-axis to the left
+ax3.spines["right"].set_position(("outward", 60))
+
+# Remove the spines
+ax1.spines["top"].set_visible(False)
+ax2.spines["top"].set_visible(False)
+ax3.spines["top"].set_visible(False)
+
+# Add labels, title, and legend
+ax1.set_xlabel("Technique")
+# ax1.set_title("Average Values by Technique")
+ax1.set_xticks(bar_positions)
+ax1.set_xticklabels(techniques)
+plt.setp(ax1.get_xticklabels(), rotation=45, horizontalalignment="right")
+
+# Remove the grid
+ax1.grid(False)
+ax2.grid(False)
+ax3.grid(False)
+
+# Show the plot
+plt.tight_layout()
+
+# Save the plot as a svg file
+plt.savefig("Average Values by Technique.svg", format="svg", bbox_inches="tight")
+
+plt.show()
 # %%
