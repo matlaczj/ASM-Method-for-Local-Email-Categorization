@@ -1,5 +1,6 @@
 # %%
 import matplotlib.pyplot as plt
+import numpy as np
 
 data = {
     "512 MB": {"Usage": 2.54, "Change": +0.16},
@@ -33,6 +34,18 @@ ax1.tick_params("y", colors="blue", labelsize=10)
 # Rotate x-axis labels for better visibility
 plt.xticks(rotation=45, ha="right")
 
+# Create a secondary y-axis for the cumsum plot
+ax2 = ax1.twinx()
+ax2.plot(
+    categories,
+    np.cumsum(usage),
+    color="dodgerblue",
+    marker="o",
+    label="Cumulative Usage (%)",
+)
+ax2.set_ylabel("Cumulative Usage (%)", color="dodgerblue", fontsize=12)
+ax2.tick_params("y", colors="dodgerblue", labelsize=10)
+
 # fig.suptitle("VRAM Memory Usage Distribution", fontsize=14)
 
 plt.tight_layout()  # Adjust layout for better visibility
@@ -43,5 +56,6 @@ plt.savefig(
     bbox_inches="tight",
     transparent=True,
 )
-plt.show()
+plt.show()  # %%
+
 # %%
