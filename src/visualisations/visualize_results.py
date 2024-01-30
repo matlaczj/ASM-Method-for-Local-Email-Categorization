@@ -114,7 +114,7 @@ num_groups = len(techniques)
 num_bars = 3
 
 # Define the width of each bar and the positions of the bars
-bar_width = 0.2
+bar_width = 0.3
 bar_positions = np.arange(num_groups)
 
 # Create a grouped bar chart with a white background
@@ -129,7 +129,7 @@ rects1 = ax1.bar(
     color="green",
     alpha=0.7,
 )
-ax1.set_ylabel("Average Correctness", color="green")
+ax1.set_ylabel("Average Correctness", color="green", weight="bold", fontsize=12)
 ax1.tick_params(axis="y", labelcolor="green")
 
 # Add average line for correctness
@@ -145,7 +145,7 @@ rects2 = ax2.bar(
     color="orange",
     alpha=0.7,
 )
-ax2.set_ylabel("Average Elapsed Time", color="orange")
+ax2.set_ylabel("Average Elapsed Time", color="orange", weight="bold", fontsize=12)
 ax2.tick_params(axis="y", labelcolor="orange")
 
 # Add average line for elapsed time
@@ -161,7 +161,7 @@ rects3 = ax3.bar(
     color="blue",
     alpha=0.7,
 )
-ax3.set_ylabel("Average Efficiency", color="blue")
+ax3.set_ylabel("Average Efficiency", color="blue", weight="bold", fontsize=12)
 ax3.tick_params(axis="y", labelcolor="blue")
 
 # Add average line for efficiency
@@ -176,11 +176,20 @@ ax2.spines["top"].set_visible(False)
 ax3.spines["top"].set_visible(False)
 
 # Add labels, title, and legend
-ax1.set_xlabel("Technique")
-# ax1.set_title("Average Values by Technique")
+ax1.set_xlabel("Technique", fontsize=12)
+ax1.set_title(
+    "Average Values by Technique",
+    fontsize=12,
+)
 ax1.set_xticks(bar_positions)
 ax1.set_xticklabels(techniques)
-plt.setp(ax1.get_xticklabels(), rotation=45, horizontalalignment="right")
+plt.setp(
+    ax1.get_xticklabels(),
+    rotation=45,
+    horizontalalignment="right",
+    weight="bold",
+    fontsize=10,
+)
 
 # Remove the grid
 ax1.grid(False)
@@ -192,6 +201,9 @@ plt.tight_layout()
 
 # Save the plot as a svg file
 plt.savefig("Average Values by Technique.svg", format="svg", bbox_inches="tight")
+
+# Save the plot as a png file
+plt.savefig("Average Values by Technique.png", format="png", bbox_inches="tight")
 
 plt.show()
 # %%

@@ -46,7 +46,10 @@ ax2.plot(
 ax2.set_ylabel("Cumulative Usage (%)", color="dodgerblue", fontsize=12)
 ax2.tick_params("y", colors="dodgerblue", labelsize=10)
 
-# fig.suptitle("VRAM Memory Usage Distribution", fontsize=14)
+fig.suptitle(
+    "VRAM Memory Usage Distribution",
+    fontsize=10,
+)
 
 plt.tight_layout()  # Adjust layout for better visibility
 

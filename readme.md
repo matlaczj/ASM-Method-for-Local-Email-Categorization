@@ -53,7 +53,8 @@ Default inference parameters used in experiments with all language models are as
 
 The investigation involved testing five models with various prompt engineering techniques. The openhermes mistral 2.5 7b model, paired with the cot 1 prompt, achieved the **highest accuracy at 97%**. The results are visualized in Figures 3, 4, and 5.
 
-![Experimental accuracies](Accuracy.png) ![Experimental average processing times](AverageProcessingTime.png) ![Experimental efficiencies (accuracy/time)](Efficiency.png)
+![Average Values by Technique](avg_val_by_tech.png)
+![Experimental accuracies](Accuracy.png) ![Experimental average processing times](AverageProcessingTime.png) ![Experimental efficiencies (accuracy/time)](Efficiency.png) 
 
 ## Conclusions
 
