@@ -97,6 +97,8 @@ for array, name, palette in zip(arrays, names, color_palettes):
     fig.tight_layout()
     # Save the plot as a svg file
     plt.savefig(f"{name}.svg", format="svg", bbox_inches="tight", transparent=True)
+    # Save as pdf
+    plt.savefig(f"{name}.pdf", format="pdf", bbox_inches="tight", transparent=True)
     plt.show()
 
 # %%
@@ -114,7 +116,7 @@ num_groups = len(techniques)
 num_bars = 3
 
 # Define the width of each bar and the positions of the bars
-bar_width = 0.3
+bar_width = 0.27
 bar_positions = np.arange(num_groups)
 
 # Create a grouped bar chart with a white background
@@ -196,6 +198,55 @@ ax1.grid(False)
 ax2.grid(False)
 ax3.grid(False)
 
+# Add bars for correctness with shadows
+ax1.bar(
+    bar_positions - bar_width,
+    correctness_means,
+    bar_width,
+    color="black",
+    alpha=0.1,
+    align="edge",
+)
+rects1 = ax1.bar(
+    bar_positions - bar_width,
+    correctness_means,
+    bar_width,
+    label="Average Correctness",
+    color="green",
+    alpha=0.7,
+)
+
+# Add bars for elapsed time with shadows
+ax2.bar(
+    bar_positions, elapsed_time_means, bar_width, color="black", alpha=0.1, align="edge"
+)
+rects2 = ax2.bar(
+    bar_positions,
+    elapsed_time_means,
+    bar_width,
+    label="Average Elapsed Time",
+    color="orange",
+    alpha=0.7,
+)
+
+# Add bars for efficiency with shadows
+ax3.bar(
+    bar_positions + bar_width,
+    efficiency_means,
+    bar_width,
+    color="black",
+    alpha=0.1,
+    align="edge",
+)
+rects3 = ax3.bar(
+    bar_positions + bar_width,
+    efficiency_means,
+    bar_width,
+    label="Average Efficiency",
+    color="blue",
+    alpha=0.7,
+)
+
 # Show the plot
 plt.tight_layout()
 
@@ -204,6 +255,9 @@ plt.savefig("Average Values by Technique.svg", format="svg", bbox_inches="tight"
 
 # Save the plot as a png file
 plt.savefig("Average Values by Technique.png", format="png", bbox_inches="tight")
+
+# Save as pdf
+plt.savefig("Average Values by Technique.pdf", format="pdf", bbox_inches="tight")
 
 plt.show()
 # %%

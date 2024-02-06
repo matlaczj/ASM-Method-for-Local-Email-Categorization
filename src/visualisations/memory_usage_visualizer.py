@@ -24,7 +24,10 @@ usage = [item["Usage"] for item in data.values()]
 fig, ax1 = plt.subplots(figsize=(4, 3))  # Smaller figure size
 
 # Increase bar width for better visibility in a compact plot
-ax1.bar(categories, usage, color="blue", alpha=0.7, label="Usage (%)", width=0.6)
+ax1.bar(categories, usage, color="black", alpha=0.1, align="edge", width=0.6)  # Shadows
+ax1.bar(
+    categories, usage, color="blue", alpha=0.7, label="Usage (%)", width=0.6
+)  # Actual bars
 
 # Increase font size for better visibility
 ax1.set_xlabel("Memory Size", fontsize=12)
@@ -59,6 +62,15 @@ plt.savefig(
     bbox_inches="tight",
     transparent=True,
 )
+
+# Save as pdf
+plt.savefig(
+    "VRAM Memory Usage.pdf",
+    format="pdf",
+    bbox_inches="tight",
+    transparent=True,
+)
+
 plt.show()  # %%
 
 # %%
