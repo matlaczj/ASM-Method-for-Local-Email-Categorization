@@ -79,7 +79,7 @@ for array, name, palette in zip(arrays, names, color_palettes):
     ax.set_yticklabels(techniques)
 
     # Rotate the tick labels and set their alignment.
-    plt.setp(ax.get_xticklabels(), rotation=45, ha="right", rotation_mode="anchor")
+    plt.setp(ax.get_xticklabels(), rotation=30, ha="right", rotation_mode="anchor")
 
     # Loop over data dimensions and create text annotations.
     for i in range(len(techniques)):
@@ -260,4 +260,43 @@ plt.savefig("Average Values by Technique.png", format="png", bbox_inches="tight"
 plt.savefig("Average Values by Technique.pdf", format="pdf", bbox_inches="tight")
 
 plt.show()
+# %%
+import pandas as pd
+
+# Create dataframes for each score type
+correctness_df = pd.DataFrame(correctness_values, columns=models)
+elapsed_time_df = pd.DataFrame(average_elapsed_time_values_array, columns=models)
+efficiency_df = pd.DataFrame(efficiency_array, columns=models)
+
+# Add technique names as a new column
+correctness_df["technique"] = techniques
+elapsed_time_df["technique"] = techniques
+efficiency_df["technique"] = techniques
+
+# Concatenate the dataframes along the column axis
+df = pd.concat(
+    [
+        correctness_df.melt(
+            id_vars="technique", var_name="model", value_name="correctness"
+        ),
+        elapsed_time_df.melt(
+            id_vars="technique", var_name="model", value_name="elapsed_time"
+        ),
+        efficiency_df.melt(
+            id_vars="technique", var_name="model", value_name="efficiency"
+        ),
+    ],
+    axis=1,
+)
+
+# Remove duplicate columns
+df = df.loc[:, ~df.columns.duplicated()]
+
+df
+# %%
+# Create sns pairplot for the dataframe
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+sns.pairplot(df, hue="technique", palette="viridis")
 # %%
