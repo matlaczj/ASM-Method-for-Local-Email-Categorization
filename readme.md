@@ -28,13 +28,13 @@ A bespoke dataset comprising 100 email samples was curated, with both legitimate
 
 Five models were selected based on widespread graphics card compatibility. Technical details of the models are provided in Table I.
 
-| Model Name                         | Quantization | Context Length | Parameters |
-| ---------------------------------- | ------------ | -------------- | ---------- |
-| ehartford dolphin-2.0-mistral-7b   | Q6           | K              | 32768      |
-| teknium openhermes-2.5-mistral-7b  | Q6           | K              | 32768      |
-| Phi2                               | Q6           | K              | 2048       |
-| mistralai mistral-7b-instruct-v0.2 | Q6           | K              | 32768      |
-| open-orca mistral-7b-openorca      | Q6           | K              | 32768      |
+| Model Name                         | Quantization | Context Length |
+| ---------------------------------- | ------------ | ---------- |
+| ehartford dolphin-2.0-mistral-7b   | Q6           | 32768      |
+| teknium openhermes-2.5-mistral-7b  | Q6           | 32768      |
+| Phi2                               | Q6           | 2048       |
+| mistralai mistral-7b-instruct-v0.2 | Q6           | 32768      |
+| open-orca mistral-7b-openorca      | Q6           | 32768      |
 
 ### Inference Parameters
 
