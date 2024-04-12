@@ -251,13 +251,28 @@ rects3 = ax3.bar(
 plt.tight_layout()
 
 # Save the plot as a svg file
-plt.savefig("Average Values by Technique.svg", format="svg", bbox_inches="tight")
+plt.savefig(
+    "Average Values by Technique.svg",
+    format="svg",
+    bbox_inches="tight",
+    transparent=True,
+)
 
 # Save the plot as a png file
-plt.savefig("Average Values by Technique.png", format="png", bbox_inches="tight")
+plt.savefig(
+    "Average Values by Technique.png",
+    format="png",
+    bbox_inches="tight",
+    transparent=True,
+)
 
 # Save as pdf
-plt.savefig("Average Values by Technique.pdf", format="pdf", bbox_inches="tight")
+plt.savefig(
+    "Average Values by Technique.pdf",
+    format="pdf",
+    bbox_inches="tight",
+    transparent=True,
+)
 
 plt.show()
 # %%
