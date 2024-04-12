@@ -14,6 +14,13 @@ This project introduces **Analyze-Select-Match (ASM)**, a novel approach to **lo
 - **Supervisor** dr inż. Krzysztof Hryniów
 - **Affiliation:** Warsaw University of Technology, Warsaw, Poland
 
+## Prompts and Other Details
+
+- [Project's Repository](https://github.com/matlaczj/ASM-Method-for-Local-Email-Categorization)
+- [Example Prompts](https://github.com/matlaczj/ASM-Method-for-Local-Email-Categorization/blob/main/docs/prompts.pdf)
+- [Dataset](https://github.com/matlaczj/ASM-Method-for-Local-Email-Categorization/blob/main/data/dataset_with_possible_categories.csv)
+- [Experiment's Configuration File](https://github.com/matlaczj/ASM-Method-for-Local-Email-Categorization/blob/main/src/experiments/experiments.py)
+
 ## Abstract
 
 This paper presents the **ASM methodology**, emphasizing Analyze, Select, and Match stages. The approach uses small language models, and a bespoke dataset of 100 email samples was curated for testing. The highest achieved accuracy was 97%, focusing on maintaining efficiency measured by the accuracy-to-average time ratio for classifying a single message.
